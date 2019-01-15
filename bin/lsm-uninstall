@@ -1,0 +1,34 @@
+#!/usr/bin/env node
+
+const program = require('commander');
+const lsm_execute = require('./lsm-execute');
+
+program
+    .parse(process.argv);
+
+var pkgs = program.args;
+
+if (!pkgs.length) {
+    console.error('scripts required');
+    process.exit(1);
+}
+
+console.log();
+pkgs.forEach(function (pkg) {
+    switch (pkg) {
+        case 'docker': 
+            console.log("The command 'lsm uninstall %s' is not supported.", pkg);
+            break;
+        case 'ss': 
+        case 'ssr': 
+        case 'shadowsocks': 
+            console.log('lsm uninstall : %s', pkg);
+            lsm_execute.execSync("./shadowsocks-all.sh uninstall");
+            break;
+        default:
+            console.error('The script %s has not been supported. \nPlease contact snowdream <sn0wdr1am@icloud.com>', pkg);
+            break;
+    }
+
+});
+console.log();
