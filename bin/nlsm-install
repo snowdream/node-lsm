@@ -20,8 +20,8 @@ pkgs.forEach(function (pkg) {
             //https://github.com/docker/docker-install
             //https: //get.docker.com/
             console.log('nlsm install : %s', pkg);
-            nlsm_execute.execSync("curl -fsSL https://get.docker.com -o get-docker.sh");
-            nlsm_execute.execSync("sh get-docker.sh");
+            nlsm_execute.exec("curl -fsSL https://get.docker.com -o get-docker.sh");
+            nlsm_execute.exec("sh get-docker.sh");
             break;
         case 'ss':
         case 'ssr':
@@ -29,9 +29,9 @@ pkgs.forEach(function (pkg) {
             // https://github.com/teddysun/shadowsocks_install
             // https://teddysun.com/486.html
             console.log('nlsm install : %s', pkg);
-            nlsm_execute.execSync("wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh");
-            nlsm_execute.execSync("chmod +x shadowsocks-all.sh");
-            nlsm_execute.execSync("./shadowsocks-all.sh 2>&1 | tee shadowsocks-all.log");
+            nlsm_execute.exec("wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh");
+            nlsm_execute.exec("chmod +x shadowsocks-all.sh");
+            nlsm_execute.exec("./shadowsocks-all.sh 2>&1 | tee shadowsocks-all.log");
             break;
         default:
             console.error('The script %s has not been supported. \nPlease contact snowdream <sn0wdr1am@icloud.com>', pkg);
