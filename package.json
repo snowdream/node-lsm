@@ -1,10 +1,10 @@
 {
-  "name": "lsm",
+  "name": "nlsm",
   "version": "0.0.1",
   "description": "Linux ",
   "main": "index.js",
   "bin": {
-    "lsm": "./bin/lsm"
+    "nlsm": "./bin/nlsm"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
