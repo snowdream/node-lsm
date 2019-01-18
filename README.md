@@ -1,4 +1,8 @@
 # node-nlsm
+[![NPM Version][npm-image]][npm-url] 
+[![NPM Downloads][downloads-image]][downloads-url]
+
+## Introduction
 Linux Script Manager with Node and commander.js 
 
 ## Install
@@ -24,3 +28,10 @@ https://teddysun.com/448.html
 https://teddysun.com/489.html
 1. unixbench: https://github.com/teddysun/across 
 https://teddysun.com/245.html
+
+
+
+[npm-image]: https://img.shields.io/npm/v/nlsm.svg
+[npm-url]: https://npmjs.org/package/nlsm
+[downloads-image]: https://img.shields.io/npm/dm/nlsm.svg
+[downloads-url]: https://npmjs.org/package/nlsm
