@@ -70,7 +70,10 @@ exports.spawnSync = function (cmd) {
 
     //console.info("$ " + command);
 
-    let out = spawnSync(command);
+    let out = spawnSync("sh", ["-c", command], {
+        stdio: "inherit",
+        stdin: "inherit"
+    })
     if (out) {
         console.info(out.toString("UTF-8"));
         return out.toString("UTF-8").replace(/[\r\n]+/g, '');;
@@ -95,7 +98,10 @@ exports.spawn = function (cmd) {
     // console.info("$ " + command);
 
 
-    let child = spawn(command);
+    let child = spawn("sh", ["-c", command], {
+        stdio: "inherit",
+        stdin: "inherit"
+    })
     child.stdout.on('data', function (data) {
         console.info(data);
     });
