@@ -53,6 +53,14 @@ pkgs.forEach(function (pkg) {
             console.log('nlsm install : %s', pkg);
             nlsm_execute.spawnSync("wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh && chmod +x bbr.sh && ./bbr.sh");
             break;
+        case 'unixbench':
+            //https://github.com/teddysun/across
+            //https://teddysun.com/245.html
+            console.log('nlsm install : %s', pkg);
+            nlsm_execute.spawnSync("wget --no-check-certificate https://github.com/teddysun/across/raw/master/unixbench.sh");
+            nlsm_execute.spawnSync("chmod +x unixbench.sh");
+            nlsm_execute.spawnSync("./unixbench.sh");
+            break;
         default:
             console.error('The script %s has not been supported. \nPlease contact snowdream <sn0wdr1am@icloud.com>', pkg);
             break;
