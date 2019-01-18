@@ -69,7 +69,7 @@ exports.spawnSync = function (cmd) {
     }
 
     //console.info("$ " + command);
-
+    //https: //stackoverflow.com/questions/28638008/node-js-how-to-show-stdin-input-with-child-process-exec
     let out = spawnSync("sh", ["-c", command], {
         stdio: "inherit",
         stdin: "inherit"
@@ -97,7 +97,7 @@ exports.spawn = function (cmd) {
 
     // console.info("$ " + command);
 
-
+    //https: //stackoverflow.com/questions/28638008/node-js-how-to-show-stdin-input-with-child-process-exec
     let child = spawn("sh", ["-c", command], {
         stdio: "inherit",
         stdin: "inherit"
