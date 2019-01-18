@@ -1,5 +1,5 @@
 # node-nlsm
-Linux Script Manager with Node and commander.js
+Linux Script Manager with Node and commander.js 
 
 ## Install
 ```
@@ -16,3 +16,5 @@ nlsm uninstall **
 1. docker: https://get.docker.com/
 1. ss,ssr,shadowsocks: https://github.com/teddysun/shadowsocks_install
  https://teddysun.com/486.html
+1. bench: https://bench.sh/
+https://teddysun.com/444.html

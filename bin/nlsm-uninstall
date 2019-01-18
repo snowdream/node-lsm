@@ -17,6 +17,7 @@ console.log();
 pkgs.forEach(function (pkg) {
     switch (pkg) {
         case 'docker': 
+        case 'bench':
             console.log("The command 'nlsm uninstall %s' is not supported.", pkg);
             break;
         case 'ss': 
