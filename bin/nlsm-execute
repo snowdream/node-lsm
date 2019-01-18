@@ -2,22 +2,22 @@
 
 
 exports.execSync  = function (cmd) {
-    var cp = require('child_process');
-    var execSync = cp.execSync;
+    let cp = require('child_process');
+    let execSync = cp.execSync;
 
     if (!cmd) {
         console.info("command should not be null or empty.")
         return;
     }
 
-    var command = cmd;
+    let command = cmd;
     if(cmd instanceof Function){
         command = cmd();
     }
 
     //console.info("$ " + command);
 
-    var out = execSync(command);
+    let out = execSync(command);
     if(out){
         console.info(out.toString("UTF-8"));
         return out.toString("UTF-8").replace(/[\r\n]+/g,'');;
@@ -26,23 +26,76 @@ exports.execSync  = function (cmd) {
 };
 
 exports.exec = function (cmd) {
-    var cp = require('child_process');
-    var exec = cp.exec;
+    let cp = require('child_process');
+    let exec = cp.exec;
 
     if (!cmd) {
         console.info("command should not be null or empty.")
         return;
     }
 
-    var command = cmd;
+    let command = cmd;
     if(cmd instanceof Function){
         command = cmd();
     }
 
-    console.info("$ " + command);
+   // console.info("$ " + command);
 
 
-    var child = exec(command);
+    let child = exec(command);
+    child.stdout.on('data', function (data) {
+        console.info(data);
+    });
+    child.stderr.on('data', function (data) {
+        console.info(data);
+    });
+    child.on('error', function (data) {
+        console.info(data);
+    });
+};
+
+exports.spawnSync = function (cmd) {
+    let cp = require('child_process');
+    let spawnSync = cp.spawnSync;
+
+    if (!cmd) {
+        console.info("command should not be null or empty.")
+        return;
+    }
+
+    let command = cmd;
+    if (cmd instanceof Function) {
+        command = cmd();
+    }
+
+    //console.info("$ " + command);
+
+    let out = spawnSync(command);
+    if (out) {
+        console.info(out.toString("UTF-8"));
+        return out.toString("UTF-8").replace(/[\r\n]+/g, '');;
+    }
+
+};
+
+exports.spawn = function (cmd) {
+    let cp = require('child_process');
+    let spawn = cp.spawn;
+
+    if (!cmd) {
+        console.info("command should not be null or empty.")
+        return;
+    }
+
+    let command = cmd;
+    if (cmd instanceof Function) {
+        command = cmd();
+    }
+
+    // console.info("$ " + command);
+
+
+    let child = spawn(command);
     child.stdout.on('data', function (data) {
         console.info(data);
     });
