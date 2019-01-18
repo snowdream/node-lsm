@@ -21,6 +21,8 @@ pkgs.forEach(function (pkg) {
         case 'l2tp':
         case 'bbr':
         case 'unixbench':
+        case 'superspeed':
+        case 'superbench':
         case 'acme':
             console.log("The command 'nlsm uninstall %s' is not supported.", pkg);
             break;

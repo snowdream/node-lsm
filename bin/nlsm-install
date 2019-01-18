@@ -61,6 +61,20 @@ pkgs.forEach(function (pkg) {
             nlsm_execute.spawnSync("chmod +x unixbench.sh");
             nlsm_execute.spawnSync("./unixbench.sh");
             break;
+        case 'superspeed':
+            //https://github.com/oooldking/script
+            //https://www.oldking.net/305.html
+            console.log('nlsm install : %s', pkg);
+            nlsm_execute.spawnSync("wget https://raw.githubusercontent.com/oooldking/script/master/superspeed.sh");
+            nlsm_execute.spawnSync("chmod +x superspeed.sh");
+            nlsm_execute.spawnSync("./superspeed.sh");
+            break;
+        case 'superbench':
+            //https://github.com/oooldking/script
+            //https://www.oldking.net/350.html
+            console.log('nlsm install : %s', pkg);
+            nlsm_execute.spawnSync("wget -qO- https://raw.githubusercontent.com/oooldking/script/master/superbench.sh | bash");
+            break;
         case 'acme':
             //https://github.com/Neilpang/acme.sh
             console.log('nlsm install : %s', pkg);
