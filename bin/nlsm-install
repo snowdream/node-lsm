@@ -39,6 +39,14 @@ pkgs.forEach(function (pkg) {
             console.log('nlsm install : %s', pkg);
             nlsm_execute.spawnSync("wget -qO- bench.sh | bash");
             break;
+        case 'l2tp':
+            //https://github.com/teddysun/across
+            //https://teddysun.com/448.html
+            console.log('nlsm install : %s', pkg);
+            nlsm_execute.spawnSync("wget --no-check-certificate https://raw.githubusercontent.com/teddysun/across/master/l2tp.sh");
+            nlsm_execute.spawnSync("chmod +x l2tp.sh");
+            nlsm_execute.spawnSync("./l2tp.sh");
+            break;
         default:
             console.error('The script %s has not been supported. \nPlease contact snowdream <sn0wdr1am@icloud.com>', pkg);
             break;
