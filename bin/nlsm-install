@@ -86,6 +86,11 @@ pkgs.forEach(function (pkg) {
             nlsm_util.log('nlsm install : %s', pkg);
             nlsm_execute.spawnSync("curl -L -s https://install.direct/go.sh | sh");
             break;
+        case 'multi-v2ray':
+            //https://github.com/Jrohy/multi-v2ray
+            nlsm_util.log('nlsm install : %s', pkg);
+            nlsm_execute.spawnSync("source <(curl -sL https://git.io/fNgqx)");
+            break;
         default:
             console.error('The script %s has not been supported. \nPlease contact snowdream <sn0wdr1am@icloud.com>', pkg);
             break;

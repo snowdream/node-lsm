@@ -9,4 +9,5 @@ program
     .description('Linux Script Manager')
     .command('install [name]', 'install one or more scripts').alias('i')
     .command('uninstall [name]', 'uninstall one or more scripts').alias('u')
+    .command('update [name]', 'uninstall one or more scripts').alias('U')
     .parse(process.argv);
