@@ -2,6 +2,7 @@
 
 const program = require('commander');
 const nlsm_execute = require('./nlsm-execute');
+const nlsm_util = require('./nlsm-util');
 
 program
     .parse(process.argv);
@@ -13,7 +14,7 @@ if (!pkgs.length) {
     process.exit(1);
 }
 
-console.log();
+nlsm_util.log();
 pkgs.forEach(function (pkg) {
     switch (pkg) {
         case 'docker': 
@@ -25,12 +26,12 @@ pkgs.forEach(function (pkg) {
         case 'superbench':
         case 'acme':
         case 'v2ray':
-            console.log("The command 'nlsm uninstall %s' is not supported.", pkg);
+            nlsm_util.log("The command 'nlsm uninstall %s' is not supported.", pkg);
             break;
         case 'ss': 
         case 'ssr': 
         case 'shadowsocks': 
-            console.log('nlsm uninstall : %s', pkg);
+            nlsm_util.log('nlsm uninstall : %s', pkg);
             nlsm_execute.spawnSync("./shadowsocks-all.sh uninstall");
             break;
         default:
@@ -39,4 +40,4 @@ pkgs.forEach(function (pkg) {
     }
 
 });
-console.log();
+nlsm_util.log();

@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+
+// log 
+exports.log = function (message , ...optionalParams) {
+    if (!message) return;
+
+    if (message instanceof Object) {
+        console.log(JSON.stringify(message), optionalParams)
+    } else {
+        console.log(message, optionalParams)
+    }
+}

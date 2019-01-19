@@ -2,6 +2,7 @@
 
 const program = require('commander');
 const nlsm_execute = require('./nlsm-execute');
+const nlsm_util = require('./nlsm-util');
 
 program
     .parse(process.argv);
@@ -13,13 +14,13 @@ if (!pkgs.length) {
     process.exit(1);
 }
 
-console.log();
+nlsm_util.log();
 pkgs.forEach(function (pkg) {
     switch (pkg) {
         case 'docker':
             //https://github.com/docker/docker-install
             //https: //get.docker.com/
-            console.log('nlsm install : %s', pkg);
+            nlsm_util.log('nlsm install : %s', pkg);
             nlsm_execute.spawnSync("curl -fsSL https://get.docker.com -o get-docker.sh");
             nlsm_execute.spawnSync("sh get-docker.sh");
             break;
@@ -28,7 +29,7 @@ pkgs.forEach(function (pkg) {
         case 'shadowsocks':
             // https://github.com/teddysun/shadowsocks_install
             // https://teddysun.com/486.html
-            console.log('nlsm install : %s', pkg);
+            nlsm_util.log('nlsm install : %s', pkg);
             nlsm_execute.spawnSync("wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh");
             nlsm_execute.spawnSync("chmod +x shadowsocks-all.sh");
             nlsm_execute.spawnSync("./shadowsocks-all.sh 2>&1 | tee shadowsocks-all.log");
@@ -36,13 +37,13 @@ pkgs.forEach(function (pkg) {
         case 'bench':
             //https://bench.sh/
             //hhttps://teddysun.com/444.html
-            console.log('nlsm install : %s', pkg);
+            nlsm_util.log('nlsm install : %s', pkg);
             nlsm_execute.spawnSync("wget -qO- bench.sh | bash");
             break;
         case 'l2tp':
             //https://github.com/teddysun/across
             //https://teddysun.com/448.html
-            console.log('nlsm install : %s', pkg);
+            nlsm_util.log('nlsm install : %s', pkg);
             nlsm_execute.spawnSync("wget --no-check-certificate https://raw.githubusercontent.com/teddysun/across/master/l2tp.sh");
             nlsm_execute.spawnSync("chmod +x l2tp.sh");
             nlsm_execute.spawnSync("./l2tp.sh");
@@ -50,13 +51,13 @@ pkgs.forEach(function (pkg) {
         case 'bbr':
             //https://github.com/teddysun/across
             //https://teddysun.com/489.html
-            console.log('nlsm install : %s', pkg);
+            nlsm_util.log('nlsm install : %s', pkg);
             nlsm_execute.spawnSync("wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh && chmod +x bbr.sh && ./bbr.sh");
             break;
         case 'unixbench':
             //https://github.com/teddysun/across
             //https://teddysun.com/245.html
-            console.log('nlsm install : %s', pkg);
+            nlsm_util.log('nlsm install : %s', pkg);
             nlsm_execute.spawnSync("wget --no-check-certificate https://github.com/teddysun/across/raw/master/unixbench.sh");
             nlsm_execute.spawnSync("chmod +x unixbench.sh");
             nlsm_execute.spawnSync("./unixbench.sh");
@@ -64,7 +65,7 @@ pkgs.forEach(function (pkg) {
         case 'superspeed':
             //https://github.com/oooldking/script
             //https://www.oldking.net/305.html
-            console.log('nlsm install : %s', pkg);
+            nlsm_util.log('nlsm install : %s', pkg);
             nlsm_execute.spawnSync("wget https://raw.githubusercontent.com/oooldking/script/master/superspeed.sh");
             nlsm_execute.spawnSync("chmod +x superspeed.sh");
             nlsm_execute.spawnSync("./superspeed.sh");
@@ -72,17 +73,17 @@ pkgs.forEach(function (pkg) {
         case 'superbench':
             //https://github.com/oooldking/script
             //https://www.oldking.net/350.html
-            console.log('nlsm install : %s', pkg);
+            nlsm_util.log('nlsm install : %s', pkg);
             nlsm_execute.spawnSync("wget -qO- https://raw.githubusercontent.com/oooldking/script/master/superbench.sh | bash");
             break;
         case 'acme':
             //https://github.com/Neilpang/acme.sh
-            console.log('nlsm install : %s', pkg);
+            nlsm_util.log('nlsm install : %s', pkg);
             nlsm_execute.spawnSync("curl https://get.acme.sh | sh");
             break;
         case 'v2ray':
             //https://www.v2ray.com/
-            console.log('nlsm install : %s', pkg);
+            nlsm_util.log('nlsm install : %s', pkg);
             nlsm_execute.spawnSync("curl -L -s https://install.direct/go.sh | sh");
             break;
         default:
@@ -90,4 +91,4 @@ pkgs.forEach(function (pkg) {
             break;
     }
 });
-console.log();
+nlsm_util.log();
