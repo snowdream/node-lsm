@@ -1,26 +1,26 @@
 #!/usr/bin/env node
 
 
-exports.execSync  = function (cmd) {
+exports.execSync = function (cmd) {
     let cp = require('child_process');
     let execSync = cp.execSync;
 
     if (!cmd) {
-        console.dir("command should not be null or empty.")
+        log("command should not be null or empty.")
         return;
     }
 
     let command = cmd;
-    if(cmd instanceof Function){
+    if (cmd instanceof Function) {
         command = cmd();
     }
 
-    //console.dir("$ " + command);
+    //log("$ " + command);
 
     let out = execSync(command);
-    if(out){
-        console.dir(out.toString("UTF-8"));
-        return out.toString("UTF-8").replace(/[\r\n]+/g,'');;
+    if (out) {
+        log(out.toString("UTF-8"));
+        return out.toString("UTF-8").replace(/[\r\n]+/g, '');;
     }
 
 };
@@ -30,36 +30,7 @@ exports.exec = function (cmd) {
     let exec = cp.exec;
 
     if (!cmd) {
-        console.dir("command should not be null or empty.")
-        return;
-    }
-
-    let command = cmd;
-    if(cmd instanceof Function){
-        command = cmd();
-    }
-
-   // console.dir("$ " + command);
-
-
-    let child = exec(command);
-    child.stdout.on('data', function (data) {
-        console.dir(data);
-    });
-    child.stderr.on('data', function (data) {
-        console.dir(data);
-    });
-    child.on('error', function (data) {
-        console.dir(data);
-    });
-};
-
-exports.spawnSync = function (cmd) {
-    let cp = require('child_process');
-    let spawnSync = cp.spawnSync;
-
-    if (!cmd) {
-        console.dir("command should not be null or empty.")
+        log("command should not be null or empty.")
         return;
     }
 
@@ -68,14 +39,43 @@ exports.spawnSync = function (cmd) {
         command = cmd();
     }
 
-    //console.dir("$ " + command);
+    // log("$ " + command);
+
+
+    let child = exec(command);
+    child.stdout.on('data', function (data) {
+        log(data);
+    });
+    child.stderr.on('data', function (data) {
+        log(data);
+    });
+    child.on('error', function (data) {
+        log(data);
+    });
+};
+
+exports.spawnSync = function (cmd) {
+    let cp = require('child_process');
+    let spawnSync = cp.spawnSync;
+
+    if (!cmd) {
+        log("command should not be null or empty.")
+        return;
+    }
+
+    let command = cmd;
+    if (cmd instanceof Function) {
+        command = cmd();
+    }
+
+    //log("$ " + command);
     //https: //stackoverflow.com/questions/28638008/node-js-how-to-show-stdin-input-with-child-process-exec
     let out = spawnSync("sh", ["-c", command], {
         stdio: "inherit",
         stdin: "inherit"
     })
     if (out) {
-        console.dir(out.toString("UTF-8"));
+        log(out.toString("UTF-8"));
         return out.toString("UTF-8").replace(/[\r\n]+/g, '');;
     }
 
@@ -86,7 +86,7 @@ exports.spawn = function (cmd) {
     let spawn = cp.spawn;
 
     if (!cmd) {
-        console.dir("command should not be null or empty.")
+        log("command should not be null or empty.")
         return;
     }
 
@@ -95,7 +95,7 @@ exports.spawn = function (cmd) {
         command = cmd();
     }
 
-    // console.dir("$ " + command);
+    // log("$ " + command);
 
     //https: //stackoverflow.com/questions/28638008/node-js-how-to-show-stdin-input-with-child-process-exec
     let child = spawn("sh", ["-c", command], {
@@ -103,12 +103,22 @@ exports.spawn = function (cmd) {
         stdin: "inherit"
     })
     child.stdout.on('data', function (data) {
-        console.dir(data);
+        log(data);
     });
     child.stderr.on('data', function (data) {
-        console.dir(data);
+        log(data);
     });
     child.on('error', function (data) {
-        console.dir(data);
+        log(data);
     });
 };
+
+function log(data) {
+    if (!data) return;
+
+    if (data instanceof Object) {
+        console.log(JSON.stringify(data))
+    } else {
+        console.log(data)
+    }
+}
