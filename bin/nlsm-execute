@@ -75,8 +75,8 @@ exports.spawnSync = function (cmd) {
         stdin: "inherit"
     })
     if (out) {
-        log(out.toString("UTF-8"));
-        return out.toString("UTF-8").replace(/[\r\n]+/g, '');;
+        log(out.toString("UTF-8").replace(/[\r\n]+/g, ''));
+        return out.toString("UTF-8").replace(/[\r\n]+/g, '');
     }
 
 };
