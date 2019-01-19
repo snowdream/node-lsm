@@ -6,7 +6,7 @@ exports.execSync  = function (cmd) {
     let execSync = cp.execSync;
 
     if (!cmd) {
-        console.info("command should not be null or empty.")
+        console.dir("command should not be null or empty.")
         return;
     }
 
@@ -15,11 +15,11 @@ exports.execSync  = function (cmd) {
         command = cmd();
     }
 
-    //console.info("$ " + command);
+    //console.dir("$ " + command);
 
     let out = execSync(command);
     if(out){
-        console.info(out.toString("UTF-8"));
+        console.dir(out.toString("UTF-8"));
         return out.toString("UTF-8").replace(/[\r\n]+/g,'');;
     }
 
@@ -30,7 +30,7 @@ exports.exec = function (cmd) {
     let exec = cp.exec;
 
     if (!cmd) {
-        console.info("command should not be null or empty.")
+        console.dir("command should not be null or empty.")
         return;
     }
 
@@ -39,18 +39,18 @@ exports.exec = function (cmd) {
         command = cmd();
     }
 
-   // console.info("$ " + command);
+   // console.dir("$ " + command);
 
 
     let child = exec(command);
     child.stdout.on('data', function (data) {
-        console.info(data);
+        console.dir(data);
     });
     child.stderr.on('data', function (data) {
-        console.info(data);
+        console.dir(data);
     });
     child.on('error', function (data) {
-        console.info(data);
+        console.dir(data);
     });
 };
 
@@ -59,7 +59,7 @@ exports.spawnSync = function (cmd) {
     let spawnSync = cp.spawnSync;
 
     if (!cmd) {
-        console.info("command should not be null or empty.")
+        console.dir("command should not be null or empty.")
         return;
     }
 
@@ -68,14 +68,14 @@ exports.spawnSync = function (cmd) {
         command = cmd();
     }
 
-    //console.info("$ " + command);
+    //console.dir("$ " + command);
     //https: //stackoverflow.com/questions/28638008/node-js-how-to-show-stdin-input-with-child-process-exec
     let out = spawnSync("sh", ["-c", command], {
         stdio: "inherit",
         stdin: "inherit"
     })
     if (out) {
-        console.info(out.toString("UTF-8"));
+        console.dir(out.toString("UTF-8"));
         return out.toString("UTF-8").replace(/[\r\n]+/g, '');;
     }
 
@@ -86,7 +86,7 @@ exports.spawn = function (cmd) {
     let spawn = cp.spawn;
 
     if (!cmd) {
-        console.info("command should not be null or empty.")
+        console.dir("command should not be null or empty.")
         return;
     }
 
@@ -95,7 +95,7 @@ exports.spawn = function (cmd) {
         command = cmd();
     }
 
-    // console.info("$ " + command);
+    // console.dir("$ " + command);
 
     //https: //stackoverflow.com/questions/28638008/node-js-how-to-show-stdin-input-with-child-process-exec
     let child = spawn("sh", ["-c", command], {
@@ -103,12 +103,12 @@ exports.spawn = function (cmd) {
         stdin: "inherit"
     })
     child.stdout.on('data', function (data) {
-        console.info(data);
+        console.dir(data);
     });
     child.stderr.on('data', function (data) {
-        console.info(data);
+        console.dir(data);
     });
     child.on('error', function (data) {
-        console.info(data);
+        console.dir(data);
     });
 };
