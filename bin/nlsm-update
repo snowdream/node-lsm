@@ -34,7 +34,7 @@ pkgs.forEach(function (pkg) {
         case 'multi-v2ray':
             //https://github.com/Jrohy/multi-v2ray
             nlsm_util.log('nlsm update : %s', pkg);
-            nlsm_execute.spawnSync("source <(curl -sL https://git.io/fNgqx) -k");
+            nlsm_execute.execSync("source <(curl -sL https://git.io/fNgqx) -k");
             break;
         default:
             console.error('The script %s has not been supported. \nPlease contact snowdream <sn0wdr1am@icloud.com>', pkg);
