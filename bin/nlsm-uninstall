@@ -36,8 +36,10 @@ pkgs.forEach(function (pkg) {
             break;
         case 'multi-v2ray':
             //https://github.com/Jrohy/multi-v2ray
-            nlsm_util.log('nlsm install : %s', pkg);
-            nlsm_execute.execSync("source <(curl -sL https://git.io/fNgqx) --remove");
+            nlsm_util.log('nlsm uninstall : %s', pkg);
+            nlsm_execute.spawnSync("curl -L -s https://git.io/fNgqx");
+            nlsm_execute.spawnSync("chmod +x multi-v2ray.sh");
+            nlsm_execute.spawnSync("bash multi-v2ray.sh --remove");
             break;
         default:
             console.error('The script %s has not been supported. \nPlease contact snowdream <sn0wdr1am@icloud.com>', pkg);
