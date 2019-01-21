@@ -35,6 +35,7 @@ https://www.oldking.net/350.html
 https://www.oldking.net/305.html
 1. v2ray： https://www.v2ray.com/
 1. multi-v2ray https://github.com/Jrohy/multi-v2ray
+1. node-lsm https://github.com/snowdream/node-lsm
 
 [npm-image]: https://img.shields.io/npm/v/nlsm.svg
 [npm-url]: https://npmjs.org/package/nlsm

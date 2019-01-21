@@ -31,6 +31,10 @@ pkgs.forEach(function (pkg) {
         case 'shadowsocks':
             nlsm_util.log("The command 'nlsm uninstall %s' is not supported.", pkg);
             break;
+        case 'nlsm':
+            nlsm_util.log('nlsm update : %s', pkg);
+            nlsm_execute.spawnSync("npm update -g nlsm");
+            break;
         case 'multi-v2ray':
             //https://github.com/Jrohy/multi-v2ray
             nlsm_util.log('nlsm update : %s', pkg);
