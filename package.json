@@ -1,6 +1,6 @@
 {
   "name": "nlsm",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Linux ",
   "main": "index.js",
   "bin": {
