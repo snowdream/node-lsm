@@ -37,7 +37,7 @@ https://www.oldking.net/305.html
 1. multi-v2ray https://github.com/Jrohy/multi-v2ray
 1. node-lsm https://github.com/snowdream/node-lsm
 1. goproxy  https://github.com/snail007/goproxy
-
+1. outline-server https://github.com/Jigsaw-Code/outline-server
 
 ## Recommended VPS
 ### 1. 搬瓦工

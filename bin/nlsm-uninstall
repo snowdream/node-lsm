@@ -27,6 +27,7 @@ pkgs.forEach(function (pkg) {
         case 'acme':
         case 'v2ray':
         case 'goproxy':
+        case 'outline-server':
             nlsm_util.log("The command 'nlsm uninstall %s' is not supported.", pkg);
             break;
         case 'nlsm':

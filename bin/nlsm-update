@@ -30,6 +30,7 @@ pkgs.forEach(function (pkg) {
         case 'ssr':
         case 'shadowsocks':
         case 'goproxy':
+        case 'outline-server':
             nlsm_util.log("The command 'nlsm update %s' is not supported.", pkg);
             break;
         case 'nlsm':
