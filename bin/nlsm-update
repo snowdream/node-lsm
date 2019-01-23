@@ -30,7 +30,7 @@ pkgs.forEach(function (pkg) {
         case 'ssr':
         case 'shadowsocks':
         case 'goproxy':
-            nlsm_util.log("The command 'nlsm uninstall %s' is not supported.", pkg);
+            nlsm_util.log("The command 'nlsm update %s' is not supported.", pkg);
             break;
         case 'nlsm':
             nlsm_util.log('nlsm update : %s', pkg);
