@@ -26,6 +26,7 @@ pkgs.forEach(function (pkg) {
         case 'superbench':
         case 'acme':
         case 'v2ray':
+        case 'goproxy':
             nlsm_util.log("The command 'nlsm uninstall %s' is not supported.", pkg);
             break;
         case 'nlsm':
